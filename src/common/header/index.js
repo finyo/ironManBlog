@@ -1,20 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from './style'
+import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, SearchWrapper } from './style'
 import { CSSTransition } from 'react-transition-group';
 import  { actionCreators } from './store';
 
 const Header = (props) => {
     return (
         <HeaderWrapper>
-            <Logo href="/" />
+            <Logo href="/">
+                <i className='iconfont logoIcon'>&#59341;</i>
+                愉 檬
+            </Logo>
             <Nav>
-                <NavItem className='left active'> 首页 </NavItem>
-                <NavItem className='left'> 下载app </NavItem>
-                <NavItem className='right' > 登陆 </NavItem>
-                <NavItem className='right'> 
-                    <i className="iconfont">&#xe636;</i>
-                </NavItem>
                 <SearchWrapper>
                     <CSSTransition
                         in={ props.focused }    
@@ -30,13 +27,19 @@ const Header = (props) => {
                     </CSSTransition>
                     <i className={ props.focused ? 'focused iconfont' : 'iconfont' }>&#xe63d;</i>
                 </SearchWrapper>
+                <NavItem className='right'> 关于 </NavItem>
+                <NavItem className='right'> 日常 </NavItem>
+                <NavItem className='right'> 首页 </NavItem>
+                {/* <NavItem className='right'> 
+                    <i className="iconfont">&#xe636;</i>
+                </NavItem> */}
             </Nav>
-            <Addition>
+            {/* <Addition>
                 <Button className='complain'>
                     投诉 <i className="iconfont">&#xe63e;</i>  
                 </Button>
                 <Button className='pay'>缴费</Button>
-            </Addition>
+            </Addition> */}
         </HeaderWrapper> 
     )
 }
